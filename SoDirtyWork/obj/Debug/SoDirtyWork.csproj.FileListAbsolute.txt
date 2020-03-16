@@ -1,0 +1,9 @@
+E:\visual_studio_project\Projects\SoDirtyWork\bin\Debug\SoDirtyWork.exe.config
+E:\visual_studio_project\Projects\SoDirtyWork\bin\Debug\SoDirtyWork.exe
+E:\visual_studio_project\Projects\SoDirtyWork\bin\Debug\SoDirtyWork.pdb
+E:\visual_studio_project\Projects\SoDirtyWork\obj\Debug\SoDirtyWork.csprojAssemblyReference.cache
+E:\visual_studio_project\Projects\SoDirtyWork\obj\Debug\SoDirtyWork.Form1.resources
+E:\visual_studio_project\Projects\SoDirtyWork\obj\Debug\SoDirtyWork.Properties.Resources.resources
+E:\visual_studio_project\Projects\SoDirtyWork\obj\Debug\SoDirtyWork.csproj.GenerateResource.cache
+E:\visual_studio_project\Projects\SoDirtyWork\obj\Debug\SoDirtyWork.exe
+E:\visual_studio_project\Projects\SoDirtyWork\obj\Debug\SoDirtyWork.pdb

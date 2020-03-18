@@ -106,6 +106,12 @@ namespace SoDirtyWork
             return pic;
         }
 
+
+        /// <summary>
+        /// 輸入一個Bitmap，回傳整個RGB中R的分布
+        /// </summary>
+        /// <param name="pic"></param>
+        /// <returns></returns>
         public Bitmap R_trans(Bitmap pic)
         {
             Bitmap r_retengo = new Bitmap(pic.Width , 100);
@@ -134,5 +140,106 @@ namespace SoDirtyWork
             return r_retengo;
         }
 
+
+        /// <summary>
+        /// 輸入一個Bitmap，回傳整個RGB中G的分布
+        /// </summary>
+        /// <param name="pic"></param>
+        /// <returns></returns>
+        public Bitmap G_trans(Bitmap pic)
+        {
+            Bitmap g_retengo = new Bitmap(pic.Width, 100);
+            //找到每個橫排的最高點 
+            for (int i = 0; i < pic.Width; i++)
+            {
+                double counter = 0;
+                for (int j = 0; j < pic.Height; j++)
+                {
+                    int reg = Convert.ToInt32(pic.GetPixel(i, j).G);
+                    counter += reg;
+                }
+
+                //塗色塗到最高點 讀取一排就畫一排
+                double x = counter / (pic.Height * 255) * 100;
+                int int_x = (int)x;
+                //MessageBox.Show("" + int_x);
+                for (int j = 99; int_x >= 0; j--)
+                {
+                    g_retengo.SetPixel(i, j, Color.Green);
+                    int_x--;
+                }
+            }
+
+            return g_retengo;
+        }
+
+
+        /// <summary>
+        /// 輸入一個Bitmap，回傳整個RGB中B的分布
+        /// </summary>
+        /// <param name="pic"></param>
+        /// <returns></returns>
+        public Bitmap B_trans(Bitmap pic)
+        {
+            Bitmap b_retengo = new Bitmap(pic.Width, 100);
+
+            //找到每個橫排的最高點 
+            for (int i = 0; i < pic.Width; i++)
+            {
+                double counter = 0;
+                for (int j = 0; j < pic.Height; j++)
+                {
+                    int reg = Convert.ToInt32(pic.GetPixel(i, j).B);
+                    counter += reg;
+                }
+
+                //塗色塗到最高點 讀取一排就畫一排
+                double x = counter / (pic.Height * 255) * 100;
+                int int_x = (int)x;
+                //MessageBox.Show("" + int_x);
+                for (int j = 99; int_x >= 0; j--)
+                {
+                    b_retengo.SetPixel(i, j, Color.Blue);
+                    int_x--;
+                }
+            }
+
+            return b_retengo;
+        }
+
+
+
+        private Bitmap sep_r = null, sep_g = null, sep_b = null; //分割RGB
+        public void separate_RGB(Bitmap pic)
+        {
+            //初始化 Bitmap大小
+            sep_r = new Bitmap(pic.Width, pic.Height);
+            sep_g = new Bitmap(pic.Width, pic.Height);
+            sep_b = new Bitmap(pic.Width, pic.Height);
+
+            for (int i = 0; i < pic.Width; i++)
+            {
+                for (int j = 0; j < pic.Height; j++)
+                {
+                    sep_r.SetPixel(i, j, Color.FromArgb(pic.GetPixel(i, j).R, 0, 0));
+                    sep_g.SetPixel(i, j, Color.FromArgb(0, pic.GetPixel(i, j).G, 0));
+                    sep_b.SetPixel(i, j, Color.FromArgb(0, 0, pic.GetPixel(i, j).B));
+                }
+            }
+        }
+
+        public Bitmap get_sep_R()
+        {
+            return this.sep_r;
+        }
+
+        public Bitmap get_sep_G()
+        {
+            return this.sep_g;
+        }
+        public Bitmap get_sep_B()
+        {
+            return this.sep_b;
+        }
     }
 }

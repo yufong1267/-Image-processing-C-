@@ -45,9 +45,19 @@
             this.Weight_Gray = new System.Windows.Forms.Button();
             this.R_dis = new System.Windows.Forms.PictureBox();
             this.RGBget = new System.Windows.Forms.Button();
+            this.G_dis = new System.Windows.Forms.PictureBox();
+            this.B_dis = new System.Windows.Forms.PictureBox();
+            this.B_only = new System.Windows.Forms.PictureBox();
+            this.G_only = new System.Windows.Forms.PictureBox();
+            this.R_only = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.R_dis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.G_dis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.B_dis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.B_only)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.G_only)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.R_only)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -63,9 +73,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 112);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 94);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(308, 290);
+            this.pictureBox1.Size = new System.Drawing.Size(319, 308);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -82,16 +92,17 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(326, 112);
+            this.pictureBox2.Location = new System.Drawing.Point(562, 112);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(315, 290);
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 94);
+            this.label1.Location = new System.Drawing.Point(12, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 15);
             this.label1.TabIndex = 4;
@@ -100,7 +111,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(326, 94);
+            this.label2.Location = new System.Drawing.Point(559, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 15);
             this.label2.TabIndex = 5;
@@ -150,7 +161,7 @@
             // 
             // Grayscale
             // 
-            this.Grayscale.Location = new System.Drawing.Point(647, 34);
+            this.Grayscale.Location = new System.Drawing.Point(883, 34);
             this.Grayscale.Name = "Grayscale";
             this.Grayscale.Size = new System.Drawing.Size(75, 23);
             this.Grayscale.TabIndex = 11;
@@ -161,15 +172,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(644, 16);
+            this.label5.Location = new System.Drawing.Point(880, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 15);
             this.label5.TabIndex = 12;
             this.label5.Text = "灰階";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Max_Gray
             // 
-            this.Max_Gray.Location = new System.Drawing.Point(647, 64);
+            this.Max_Gray.Location = new System.Drawing.Point(883, 64);
             this.Max_Gray.Name = "Max_Gray";
             this.Max_Gray.Size = new System.Drawing.Size(75, 23);
             this.Max_Gray.TabIndex = 13;
@@ -179,7 +191,7 @@
             // 
             // Weight_Gray
             // 
-            this.Weight_Gray.Location = new System.Drawing.Point(647, 94);
+            this.Weight_Gray.Location = new System.Drawing.Point(883, 94);
             this.Weight_Gray.Name = "Weight_Gray";
             this.Weight_Gray.Size = new System.Drawing.Size(75, 23);
             this.Weight_Gray.TabIndex = 14;
@@ -190,27 +202,77 @@
             // R_dis
             // 
             this.R_dis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.R_dis.Location = new System.Drawing.Point(647, 273);
+            this.R_dis.Location = new System.Drawing.Point(15, 408);
             this.R_dis.Name = "R_dis";
-            this.R_dis.Size = new System.Drawing.Size(134, 129);
+            this.R_dis.Size = new System.Drawing.Size(98, 86);
             this.R_dis.TabIndex = 15;
             this.R_dis.TabStop = false;
             // 
             // RGBget
             // 
-            this.RGBget.Location = new System.Drawing.Point(648, 244);
+            this.RGBget.Location = new System.Drawing.Point(400, 112);
             this.RGBget.Name = "RGBget";
             this.RGBget.Size = new System.Drawing.Size(75, 23);
             this.RGBget.TabIndex = 16;
-            this.RGBget.Text = "button4";
+            this.RGBget.Text = "分離RGB";
             this.RGBget.UseVisualStyleBackColor = true;
             this.RGBget.Click += new System.EventHandler(this.RGBget_Click);
+            // 
+            // G_dis
+            // 
+            this.G_dis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.G_dis.Location = new System.Drawing.Point(119, 408);
+            this.G_dis.Name = "G_dis";
+            this.G_dis.Size = new System.Drawing.Size(100, 86);
+            this.G_dis.TabIndex = 17;
+            this.G_dis.TabStop = false;
+            // 
+            // B_dis
+            // 
+            this.B_dis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.B_dis.Location = new System.Drawing.Point(225, 408);
+            this.B_dis.Name = "B_dis";
+            this.B_dis.Size = new System.Drawing.Size(106, 86);
+            this.B_dis.TabIndex = 18;
+            this.B_dis.TabStop = false;
+            // 
+            // B_only
+            // 
+            this.B_only.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.B_only.Location = new System.Drawing.Point(225, 509);
+            this.B_only.Name = "B_only";
+            this.B_only.Size = new System.Drawing.Size(106, 86);
+            this.B_only.TabIndex = 21;
+            this.B_only.TabStop = false;
+            // 
+            // G_only
+            // 
+            this.G_only.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.G_only.Location = new System.Drawing.Point(119, 509);
+            this.G_only.Name = "G_only";
+            this.G_only.Size = new System.Drawing.Size(100, 86);
+            this.G_only.TabIndex = 20;
+            this.G_only.TabStop = false;
+            // 
+            // R_only
+            // 
+            this.R_only.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.R_only.Location = new System.Drawing.Point(15, 509);
+            this.R_only.Name = "R_only";
+            this.R_only.Size = new System.Drawing.Size(98, 86);
+            this.R_only.TabIndex = 19;
+            this.R_only.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 538);
+            this.ClientSize = new System.Drawing.Size(1155, 936);
+            this.Controls.Add(this.B_only);
+            this.Controls.Add(this.G_only);
+            this.Controls.Add(this.R_only);
+            this.Controls.Add(this.B_dis);
+            this.Controls.Add(this.G_dis);
             this.Controls.Add(this.RGBget);
             this.Controls.Add(this.R_dis);
             this.Controls.Add(this.Weight_Gray);
@@ -234,6 +296,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.R_dis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.G_dis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.B_dis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.B_only)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.G_only)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.R_only)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,6 +324,11 @@
         private System.Windows.Forms.Button Weight_Gray;
         private System.Windows.Forms.PictureBox R_dis;
         private System.Windows.Forms.Button RGBget;
+        private System.Windows.Forms.PictureBox G_dis;
+        private System.Windows.Forms.PictureBox B_dis;
+        private System.Windows.Forms.PictureBox B_only;
+        private System.Windows.Forms.PictureBox G_only;
+        private System.Windows.Forms.PictureBox R_only;
     }
 }
 

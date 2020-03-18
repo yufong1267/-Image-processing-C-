@@ -97,7 +97,26 @@ namespace SoDirtyWork
         private void RGBget_Click(object sender, EventArgs e)
         {
             PictureProcess m_p = new PictureProcess();
-            R_dis.BackgroundImage = m_p.R_trans((Bitmap)pictureBox2.BackgroundImage);
+            //RGB長條圖
+            R_dis.BackgroundImage = m_p.R_trans((Bitmap)pictureBox2.BackgroundImage); 
+            G_dis.BackgroundImage = m_p.G_trans((Bitmap)pictureBox2.BackgroundImage); 
+            B_dis.BackgroundImage = m_p.B_trans((Bitmap)pictureBox2.BackgroundImage);
+
+            //分離RGB
+            m_p.separate_RGB((Bitmap)pictureBox2.BackgroundImage);
+            R_only.BackgroundImage = m_p.get_sep_R();
+            G_only.BackgroundImage = m_p.get_sep_G();
+            B_only.BackgroundImage = m_p.get_sep_B();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

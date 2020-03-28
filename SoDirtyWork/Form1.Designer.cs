@@ -50,6 +50,8 @@
             this.B_only = new System.Windows.Forms.PictureBox();
             this.G_only = new System.Windows.Forms.PictureBox();
             this.R_only = new System.Windows.Forms.PictureBox();
+            this.min_grayscale = new System.Windows.Forms.Button();
+            this.minus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.R_dis)).BeginInit();
@@ -263,11 +265,33 @@
             this.R_only.TabIndex = 19;
             this.R_only.TabStop = false;
             // 
+            // min_grayscale
+            // 
+            this.min_grayscale.Location = new System.Drawing.Point(883, 124);
+            this.min_grayscale.Name = "min_grayscale";
+            this.min_grayscale.Size = new System.Drawing.Size(75, 23);
+            this.min_grayscale.TabIndex = 22;
+            this.min_grayscale.Text = "最小值";
+            this.min_grayscale.UseVisualStyleBackColor = true;
+            this.min_grayscale.Click += new System.EventHandler(this.min_grayscale_Click);
+            // 
+            // minus
+            // 
+            this.minus.Location = new System.Drawing.Point(883, 154);
+            this.minus.Name = "minus";
+            this.minus.Size = new System.Drawing.Size(75, 23);
+            this.minus.TabIndex = 23;
+            this.minus.Text = "負片";
+            this.minus.UseVisualStyleBackColor = true;
+            this.minus.Click += new System.EventHandler(this.minus_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 936);
+            this.Controls.Add(this.minus);
+            this.Controls.Add(this.min_grayscale);
             this.Controls.Add(this.B_only);
             this.Controls.Add(this.G_only);
             this.Controls.Add(this.R_only);
@@ -329,6 +353,8 @@
         private System.Windows.Forms.PictureBox B_only;
         private System.Windows.Forms.PictureBox G_only;
         private System.Windows.Forms.PictureBox R_only;
+        private System.Windows.Forms.Button min_grayscale;
+        private System.Windows.Forms.Button minus;
     }
 }
 

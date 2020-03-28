@@ -118,5 +118,17 @@ namespace SoDirtyWork
         {
 
         }
+
+        private void min_grayscale_Click(object sender, EventArgs e)
+        {
+            PictureProcess pictureprocess = new PictureProcess();
+            pictureBox2.BackgroundImage = pictureprocess.min_GrayScale((Bitmap)pictureBox2.BackgroundImage);
+        }
+
+        private void minus_Click(object sender, EventArgs e)
+        {
+            PictureProcess pictureprocess = new PictureProcess();
+            pictureBox2.BackgroundImage = pictureprocess.Negative_Picture((Bitmap)pictureBox2.BackgroundImage);
+        }
     }
 }

@@ -91,6 +91,16 @@ namespace SoDirtyWork
             return pic;
         }
 
+
+        /// <summary>
+        /// 給定一張輸入的Bitmap，後面三個參數為R的權重；G的權重；B的權重
+        /// return 一張修改後的Bitmap
+        /// </summary>
+        /// <param name="pic"></param>
+        /// <param name="r_weight"></param>
+        /// <param name="g_weight"></param>
+        /// <param name="b_weight"></param>
+        /// <returns></returns>
         public Bitmap weight_GrayScale(Bitmap pic , double r_weight , double g_weight , double b_weight)
         {
             for(int i = 0; i < pic.Width; i++)
@@ -100,6 +110,66 @@ namespace SoDirtyWork
                     int r = Convert.ToInt32(pic.GetPixel(i, j).R * r_weight) , g = Convert.ToInt32(pic.GetPixel(i, j).G * g_weight) , b = Convert.ToInt32(pic.GetPixel(i, j).B * b_weight);
                     //全部換成 g pixel
                     pic.SetPixel(i, j, Color.FromArgb(r,g,b));
+                }
+            }
+
+            return pic;
+        }
+
+
+        /// <summary>
+        /// 輸入給定一張Bitmap
+        /// return 一張灰階後的Bitmap
+        /// 方法：採用每個pixel R G B中最小值為灰階值，因此花費時間比較久
+        /// </summary>
+        /// <param name="pic"></param>
+        /// <returns></returns>
+        public Bitmap min_GrayScale(Bitmap pic)
+        {
+            for (int i = 0; i < pic.Width; i++)
+            {
+                for (int j = 0; j < pic.Height; j++)
+                {
+                    bool min_r = (pic.GetPixel(i, j).R <= pic.GetPixel(i, j).G) && (pic.GetPixel(i, j).R <= pic.GetPixel(i, j).B);
+                    bool min_g = (pic.GetPixel(i, j).G <= pic.GetPixel(i, j).R) && (pic.GetPixel(i, j).G <= pic.GetPixel(i, j).B);
+                    bool min_b = (pic.GetPixel(i, j).B <= pic.GetPixel(i, j).R) && (pic.GetPixel(i, j).B <= pic.GetPixel(i, j).G);
+
+                    if (min_r)
+                    {
+                        //全部換成r pixel
+                        pic.SetPixel(i, j, Color.FromArgb(pic.GetPixel(i, j).R, pic.GetPixel(i, j).R, pic.GetPixel(i, j).R));
+                    }
+                    else if (min_g)
+                    {
+                        //全部換成 g pixel
+                        pic.SetPixel(i, j, Color.FromArgb(pic.GetPixel(i, j).G, pic.GetPixel(i, j).G, pic.GetPixel(i, j).G));
+                    }
+                    else if (min_b)
+                    {
+                        //全部換成 g pixel
+                        pic.SetPixel(i, j, Color.FromArgb(pic.GetPixel(i, j).B, pic.GetPixel(i, j).B, pic.GetPixel(i, j).B));
+                    }
+                }
+            }
+            return pic;
+        }
+
+
+
+        /// <summary>
+        /// 輸入給定一張Bitmap  return 一個負片後的Bitmap
+        /// </summary>
+        /// <param name="pic"></param>
+        /// <returns></returns>
+        public Bitmap Negative_Picture(Bitmap pic)
+        {
+            for(int i = 0;i < pic.Width; i++)
+            {
+                for(int j = 0; j < pic.Height; j++)
+                {
+                    //每個byte的值取出來後用255扣掉
+                    int r = 255 - pic.GetPixel(i, j).R,g = 255 - pic.GetPixel(i, j).G, b = 255 - pic.GetPixel(i, j).B;
+                    pic.SetPixel(i,j,Color.FromArgb(r,g,b));
                 }
             }
 
@@ -241,5 +311,7 @@ namespace SoDirtyWork
         {
             return this.sep_b;
         }
+
+       
     }
 }

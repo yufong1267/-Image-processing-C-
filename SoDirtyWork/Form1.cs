@@ -19,11 +19,16 @@ namespace SoDirtyWork
         }
 
 
+        private PictureState picture_stack = null;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //圖片預處理優化
             this.DoubleBuffered = true;
+
+
+            //建立stack
+            picture_stack = new PictureState();
         }
 
         
@@ -61,6 +66,9 @@ namespace SoDirtyWork
 
             //更新改變後 label的width x height
             label2.Text = "修改後" + change_size.get_widthxHeight((Bitmap)pictureBox2.BackgroundImage);
+
+            //把新的圖片狀態放進去stack裡面
+            picture_stack.Push((Bitmap)pictureBox2.BackgroundImage);
         }
 
         private void Grayscale_Click(object sender, EventArgs e)
@@ -72,6 +80,9 @@ namespace SoDirtyWork
 
             //更新新的width x height
             label2.Text = "編輯後" + m_gray.get_widthxHeight((Bitmap)pictureBox2.BackgroundImage);
+
+            //把新的圖片狀態放進去stack裡面
+            picture_stack.Push((Bitmap)pictureBox2.BackgroundImage);
         }
 
         private void Max_Gray_Click(object sender, EventArgs e)
@@ -83,6 +94,9 @@ namespace SoDirtyWork
 
             //更新新的width x height
             label2.Text = "編輯後" + max_gray.get_widthxHeight((Bitmap)pictureBox2.BackgroundImage);
+
+            //把新的圖片狀態放進去stack裡面
+            picture_stack.Push((Bitmap)pictureBox2.BackgroundImage);
         }
 
         private void Weight_Gray_Click(object sender, EventArgs e)
@@ -92,6 +106,9 @@ namespace SoDirtyWork
 
             //更新新的width x height
             label2.Text = "編輯後" + w_gray.get_widthxHeight((Bitmap)pictureBox2.BackgroundImage);
+
+            //把新的圖片狀態放進去stack裡面
+            picture_stack.Push((Bitmap)pictureBox2.BackgroundImage);
         }
 
         private void RGBget_Click(object sender, EventArgs e)
@@ -123,12 +140,34 @@ namespace SoDirtyWork
         {
             PictureProcess pictureprocess = new PictureProcess();
             pictureBox2.BackgroundImage = pictureprocess.min_GrayScale((Bitmap)pictureBox2.BackgroundImage);
+
+            //把新的圖片狀態放進去stack裡面
+            picture_stack.Push((Bitmap)pictureBox2.BackgroundImage);
         }
 
         private void minus_Click(object sender, EventArgs e)
         {
             PictureProcess pictureprocess = new PictureProcess();
             pictureBox2.BackgroundImage = pictureprocess.Negative_Picture((Bitmap)pictureBox2.BackgroundImage);
+
+            //把新的圖片狀態放進去stack裡面
+            picture_stack.Push((Bitmap)pictureBox2.BackgroundImage);
+        }
+
+        private void Log_algorithm_Click(object sender, EventArgs e)
+        {
+            PictureProcess pictureprocess = new PictureProcess();
+            pictureBox2.BackgroundImage = pictureprocess.Log_Filter((Bitmap)pictureBox2.BackgroundImage);
+
+            //把新的圖片狀態放進去stack裡面
+            picture_stack.Push((Bitmap)pictureBox2.BackgroundImage);
+
+        }
+
+        private void undo_Click(object sender, EventArgs e)
+        {
+            //把舊的picture從stack裡面取出來
+            pictureBox2.BackgroundImage = picture_stack.Pop();
         }
     }
 }

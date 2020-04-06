@@ -313,5 +313,24 @@ namespace SoDirtyWork
         }
 
        
+        /// <summary>
+        /// 輸入想要log濾波的Bitmap 回傳Bitmap一張
+        /// </summary>
+        /// <param name="pic"></param>
+        /// <returns></returns>
+        public Bitmap Log_Filter(Bitmap pic)
+        {
+            for(int i = 0; i < pic.Width; i++)
+            {
+                for(int j = 0; j < pic.Height; j++)
+                {
+                    double r = 40 * Math.Log(1 + pic.GetPixel(i, j).R), g = 40 * Math.Log(1 + pic.GetPixel(i, j).G), b = 40 * Math.Log(1 + pic.GetPixel(i, j).B);
+                    pic.SetPixel(i, j, Color.FromArgb((int)r, (int)g, (int)b));
+                }
+            }
+
+            return pic;
+        }
+
     }
 }

@@ -52,6 +52,9 @@
             this.R_only = new System.Windows.Forms.PictureBox();
             this.min_grayscale = new System.Windows.Forms.Button();
             this.minus = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Log_algorithm = new System.Windows.Forms.Button();
+            this.undo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.R_dis)).BeginInit();
@@ -277,7 +280,7 @@
             // 
             // minus
             // 
-            this.minus.Location = new System.Drawing.Point(883, 154);
+            this.minus.Location = new System.Drawing.Point(997, 33);
             this.minus.Name = "minus";
             this.minus.Size = new System.Drawing.Size(75, 23);
             this.minus.TabIndex = 23;
@@ -285,11 +288,43 @@
             this.minus.UseVisualStyleBackColor = true;
             this.minus.Click += new System.EventHandler(this.minus_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(994, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 15);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "對比";
+            // 
+            // Log_algorithm
+            // 
+            this.Log_algorithm.Location = new System.Drawing.Point(997, 63);
+            this.Log_algorithm.Name = "Log_algorithm";
+            this.Log_algorithm.Size = new System.Drawing.Size(75, 23);
+            this.Log_algorithm.TabIndex = 25;
+            this.Log_algorithm.Text = "Log演算法";
+            this.Log_algorithm.UseVisualStyleBackColor = true;
+            this.Log_algorithm.Click += new System.EventHandler(this.Log_algorithm_Click);
+            // 
+            // undo
+            // 
+            this.undo.Location = new System.Drawing.Point(647, 12);
+            this.undo.Name = "undo";
+            this.undo.Size = new System.Drawing.Size(75, 23);
+            this.undo.TabIndex = 26;
+            this.undo.Text = "上一步";
+            this.undo.UseVisualStyleBackColor = true;
+            this.undo.Click += new System.EventHandler(this.undo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 936);
+            this.Controls.Add(this.undo);
+            this.Controls.Add(this.Log_algorithm);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.minus);
             this.Controls.Add(this.min_grayscale);
             this.Controls.Add(this.B_only);
@@ -355,6 +390,9 @@
         private System.Windows.Forms.PictureBox R_only;
         private System.Windows.Forms.Button min_grayscale;
         private System.Windows.Forms.Button minus;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Log_algorithm;
+        private System.Windows.Forms.Button undo;
     }
 }
 
